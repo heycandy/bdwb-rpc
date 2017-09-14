@@ -3,9 +3,9 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "com.icss.ark.bdwb.schedule";
 option java_outer_classname = "ScheduleProto";
-option objc_class_prefix = "ARK";
+option objc_class_prefix = "ARK.SCHEDULE";
 
-package com.icss.ark.bdwb.schedule;
+package com.icss.ark.bdwb.rpc;
 
 service ScheduleService {
 

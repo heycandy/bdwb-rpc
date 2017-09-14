@@ -1,11 +1,11 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.icss.ark.bdwb.schedule";
+option java_package = "com.icss.ark.bdwb.errcode";
 option java_outer_classname = "ErrCodeProto";
 option objc_class_prefix = "ARK.ERRCODE";
 
-package com.icss.ark.bdwb.schedule;
+package com.icss.ark.bdwb.rpc;
 
 
 
