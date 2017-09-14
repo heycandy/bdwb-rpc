@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.icss.ark.bdwb.schedule";
+option java_outer_classname = "ScheduleProto";
+option objc_class_prefix = "ARK";
+
+package com.icss.ark.bdwb.schedule;
+
+service ScheduleService {
+
+  rpc strategy (StrategyRquest) returns (ResponseMessage) {
+  }
+  rpc schedule (ScheduleRequest) returns (ResponseMessage) {
+  }
+  rpc operate (OperationRequest) returns (ResponseMessage) {
+  }
+}
+
+
+import "core.proto";
+
+message StrategyRquest {
+  string accessToken = 1;
+}
+
+message Strategy {
+  //各种策略
+  //  string accessToken = 1;
+}
+
+message ScheduleRequest {
+  string accessToken = 1;
+  Strategy strategy = 2;
+  Scene scene = 3;
+}
+
+message OperationRequest {
+  string accessToken = 1;
+  enum Operations {
+    PAUSE = 0;
+    RESUME = 1;
+    STOP = 2;
+    KILL = 3;
+  }
+  Operations operation = 2; //containing executorId & operation param(stop,resume)
+}
+
+//message ResponseMessage {
+//  int32 code = 1;
+//  string msg = 2;
+//  google.protobuf.Any content = 3;
+//}
+

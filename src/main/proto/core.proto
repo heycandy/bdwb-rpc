@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.icss.ark.bdwb.core";
+option java_outer_classname = "CoreProto";
+option objc_class_prefix = "ARK.CORE";
+
+package com.icss.ark.bdwb.schedule;
+
+service SceneService {
+
+  rpc commit (stream SceneRequest) returns (stream ResponseMessage) {
+  }
+  rpc components (ComponentRequest) returns (ResponseMessage) {
+  }
+  rpc calculate (DirectiveRquest) returns (ResponseMessage) {
+  }
+}
+
+import "google/protobuf/any.proto";
+
+message Directive {
+  message Param {
+    string name = 1;
+    string type = 2;
+    string value = 3;
+    string default = 4;
+  }
+  string directiveName = 1;
+  string directiveId = 2;
+  repeated Param params = 3;
+}
+
+message Link {
+  string in = 1;
+  string out = 2;
+}
+
+message Scene {
+  repeated Directive directives = 1;
+  repeated Link line = 2;
+}
+
+message SceneRequest {
+  string accessToken = 1;
+  Scene scene = 2;
+}
+
+message ComponentRequest {
+  string accessToken = 1;
+  //  Response response = 1;
+  //  string packageName = 2;
+  //  string name = 3;
+  //  string desc = 4;
+  //  repeated Directive directives = 5;
+}
+
+message DirectiveRquest {
+  string accessToken = 1;
+  string directiveId = 2;
+}
+
+message ResponseMessage {
+  int32 code = 1;
+  string msg = 2;
+  google.protobuf.Any content = 3;
+}
+
