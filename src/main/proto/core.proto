@@ -5,7 +5,7 @@ option java_package = "com.icss.ark.bdwb.core";
 option java_outer_classname = "CoreProto";
 option objc_class_prefix = "ARK.CORE";
 
-package com.icss.ark.bdwb.schedule;
+package com.icss.ark.bdwb.core;
 
 service SceneService {
 
